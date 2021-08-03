@@ -1,0 +1,31 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+    <% newListItems.forEach(function(item){ %>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+          <p><%= item.name  %></p>
+        </div>
+        <input type="hidden" name="listname" value="<%= listTitle %>"></input>
+          </form>
+          <!-- This form is bascically for the checkbox -->
+        <% }) %>
+
+  <!-- value= "newListItems[i]._id:The checkbox or req.body.checkbox points to the id of the entry. -->
+ <!-- Every input parameter can be made to point to 1 parameter-->
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value="<%=listTitle%>">+</button>
+        <!--submit button is made to point to the value:listTitle-->
+
+      </form>
+      <!-- This is the empty field where the user adds new entry -->
+  </div>
+
+<%- include("footer") -%>
+  <!-- every checkbox acts like a form which says that when its clicked a post request should be made to delete route -->
