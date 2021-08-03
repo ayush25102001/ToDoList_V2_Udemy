@@ -6,7 +6,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://admin-ayush:<test123>@cluster0.fxa6i.mongodb.net/todolistdb?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://admin-ayush:<*****>@cluster0.fxa6i.mongodb.net/todolistdb?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true } );
 //mongoose
